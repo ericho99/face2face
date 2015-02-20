@@ -1,0 +1,27 @@
+#menu {
+  width: 1000px;
+  height: 35px;
+  font-size: 20px;
+  font-family: "Times New Roman", Georgia, Serif;
+  /*font-weight: bold;*/
+  text-align: left;
+  /*text-shadow: 3px 2px 3px #333333;*/
+  /*background-color: #8AD9FF;*/
+  border-radius: 8px;
+}
+
+#menu li { 
+display: inline; 
+padding: 20px; 
+}
+
+#menu a {
+  text-decoration: none;
+  color: #00F;
+  padding: 8px 8px 8px 8px;
+}
+
+#menu a:hover {
+    color: #F90;
+    background-color: #FFF;
+}
