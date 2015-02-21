@@ -1,27 +1,38 @@
-#menu {
-  width: 1000px;
-  height: 35px;
-  font-size: 20px;
-  font-family: "Times New Roman", Georgia, Serif;
-  /*font-weight: bold;*/
-  text-align: left;
-  /*text-shadow: 3px 2px 3px #333333;*/
-  /*background-color: #8AD9FF;*/
-  border-radius: 8px;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
 
-#menu li { 
-display: inline; 
-padding: 20px; 
+
+/*Footer CSS*/
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
 
-#menu a {
-  text-decoration: none;
-  color: #00F;
-  padding: 8px 8px 8px 8px;
+#footer .container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-#menu a:hover {
-    color: #F90;
-    background-color: #FFF;
+#footer .container li{
+  float: left;
+}
+
+#footer .container a{
+  display: block;
+  width: 70px;
+  /*background-color: #dddddd;*/
 }
