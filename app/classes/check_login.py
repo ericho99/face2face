@@ -16,7 +16,7 @@ class CheckLogin:
 	# code that we should modify based on what we're actually using. I'm just
 	# treating users as a list object for now.
 		for usr in users:
-			if (usr.username == self.username and usr.psw = self.psw):
+			if (usr.username == self.username and usr.psw == self.psw):
 				return usr
 		return None # consider changing this return type
 
