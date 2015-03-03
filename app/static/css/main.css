@@ -112,5 +112,33 @@ p, div {
   /*background-color: #dddddd;*/
 }
 
+/****************** DASHBOARD ****************/
+#dashboard .pane{
+  padding: 10px 0px;
+  background-color: #E1F7FA;
+}
+
+#dashboard div#left {
+  width: 50%;
+  height: 300px;
+  float: left;
+}
+#dashboard div#right {
+  margin-left: 50%;
+  height: 300px;
+}
+
+#dashboard .dash-button{
+  height:30%; 
+  width:30%; 
+  position:relative;
+  top:40%; 
+  left:50%;
+}
+
+#dashboard .dash-button .btn{
+  font-size: 30px;
+  font-weight: 10;
+}
 
 /*I literally can't stop listening to "Love me like you do"*/
