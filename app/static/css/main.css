@@ -12,10 +12,10 @@ body {
 /*Font Overrides*/
 /*Find better font.*/
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'News Cycle', sans-serif;
+    font-family: 'Alegreya', serif;
 }
 p, div {
-    font-family: 'News Cycle', sans-serif;
+    font-family: 'Alegreya', serif;
 }
 
 .block-wrapper{
@@ -25,8 +25,8 @@ p, div {
 
 /****************** NAVBAR ****************/
 .navbar{
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 18px;
   font-weight: 100;
   margin-bottom: 0px;
@@ -114,7 +114,7 @@ p, div {
 
 /****************** DASHBOARD ****************/
 #dashboard .pane{
-  padding: 10px 0px;
+  padding: 0px 0px;
   background-color: #E1F7FA;
 }
 
@@ -122,23 +122,41 @@ p, div {
   width: 50%;
   height: 300px;
   float: left;
+  background-color: #949494;
 }
 #dashboard div#right {
   margin-left: 50%;
   height: 300px;
+  background-color: #949494;
 }
 
 #dashboard .dash-button{
   height:30%; 
-  width:30%; 
+  width:20%; 
   position:relative;
   top:40%; 
-  left:50%;
+  left:40%;
 }
 
 #dashboard .dash-button .btn{
   font-size: 30px;
   font-weight: 10;
+  padding: 15px 30px;
+}
+
+/****************** FORMS ****************/
+.f2f-form{
+  background-color: #CCCCCC;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  font-size: 18px;
+}
+.f2f-form h1{
+  text-align: center;
+}
+.f2f-form .container {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 /*I literally can't stop listening to "Love me like you do"*/

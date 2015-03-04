@@ -18,6 +18,16 @@ def login():
 def dashboard():
   return render_template('dashboard.html')
 
+# JOIN STREAM
+@app.route('/join')
+def join():
+	return render_template('joinable-streams.html')
+
+# HOST STREAM
+@app.route('/host')
+def host():
+	return render_template('video-host-setup.html')
+
 # COMING SOON
 @app.route('/cs')
 @app.route('/comingsoon')
