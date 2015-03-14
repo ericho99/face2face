@@ -1,0 +1,4 @@
+Flask==0.9
+Jinja2=2.6
+Flask-WTF==0.9.5
+paypal=1.2.0
