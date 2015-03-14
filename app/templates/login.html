@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>LOGIN MY NOGGIN</h1>
+<div class="container">
+      <h1>Please login</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{request.form.username}}">
+         <input type="password" placeholder="Password" name="password" value="{{request.form.password}}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+</div>
+
+<div class="container">
+  Don't have an account? Create one <a href="/register">here</a>.
+</div>
 
 {% endblock %}
