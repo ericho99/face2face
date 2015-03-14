@@ -2,7 +2,7 @@
 {% block content %}
 {% from "_formhelpers.html" import render_field %}
 
-<center>
+<div class="container">
 	<h2>Please create an account </h2>
 	<br>
 	<form method=post action="/register">
@@ -15,6 +15,10 @@
 	  </dl>
 	  <p><input type=submit value=Register>
 	</form>
-</center>
+</div>
+
+<div class="container">
+	If you already have an account login <a href="/login"> here. </a>
+</div>
 
 {% endblock %}
