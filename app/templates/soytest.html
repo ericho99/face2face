@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="pane dark">
+	<h1>Kyle's Lasagna Class!</h1>
+	<h2>Limited to 10 people. Only $1</h2>
+</section>
+
+<section class="pane light">
+	<h1>Click below to pay and enter</h1>
+	<center>
+		<a href="/paypal/redirect">
+	        <img src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif">
+	    </a>
+	</center>
+</section>
+
+{% endblock %}
