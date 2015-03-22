@@ -5,10 +5,11 @@ from .forms import RegistrationForm
 from config import config, interface
 
 # HOMEPAGE
-@app.route('/')
 @app.route('/index')
+@app.route('/')
 def index():
   return render_template('index.html')
+
 
 # LOGIN
 @app.route('/login', methods=['GET', 'POST'])

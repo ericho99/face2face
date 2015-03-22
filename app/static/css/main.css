@@ -12,10 +12,10 @@ body {
 /*Font Overrides*/
 /*Find better font.*/
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Alegreya', serif;
+    font-family: 'PT Sans', sans-serif;
 }
 p, div {
-    font-family: 'Alegreya', serif;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .block-wrapper{
@@ -42,6 +42,12 @@ p, div {
   font-size: 18px;
   font-weight: 100;
   padding: 10px 30px;
+}
+
+.navbar-brand{
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 40px;
+  font-weight: 100;
 }
 
 
