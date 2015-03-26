@@ -1,2 +1,4 @@
 flask/
 paypal/
+.DS_Store
+*.pyc
