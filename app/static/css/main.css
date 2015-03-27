@@ -1,4 +1,4 @@
-/****************** NAVBAR ****************/
+***************** NAVBAR ****************/
 html {
   position: relative;
   min-height: 100%;
@@ -13,9 +13,11 @@ body {
 /*Find better font.*/
 h1, h2, h3, h4, h5, h6 {
     font-family: 'PT Sans', sans-serif;
+    font-weight: 100; 
 }
 p, div {
     font-family: 'PT Sans', sans-serif;
+    font-weight: 100; 
 }
 
 .block-wrapper{
@@ -25,15 +27,24 @@ p, div {
 
 /****************** NAVBAR ****************/
 .navbar{
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /*background-color: #E0FFE0;*/
+  /*position: fixed;*/
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 18px;
   font-weight: 100;
   margin-bottom: 0px;
+  border: 0px;
 }
+
+.navbar-default .navbar-nav>li>a {
+  color: #FFADFF;
+}
+
 
 .navbar-btn{
   margin-top: 0px;
+  padding-top: 5px;
   padding-left:10px;
   padding-right:10px;
 }
@@ -41,29 +52,40 @@ p, div {
 .navbar .btn{
   font-size: 18px;
   font-weight: 100;
-  padding: 10px 30px;
+  padding: 5px 15px;
+}
+  
+.btn-info {
+  background-color: #FFADFF;
+  border-color: #FFADFF;
+}
+
+.btn-info:hover{
+  background-color: #CC7ACC;
+  border-color: #CC7ACC;
 }
 
 .navbar-brand{
-  font-family: 'Mr Dafoe', cursive;
-  font-size: 40px;
+  /*font-family: 'Mr Dafoe', cursive;*/
+  font-size: 18px;
   font-weight: 100;
 }
 
 
 /****************** PANES ****************/
 .pane{
-  padding: 100px 0px;
+  padding: 100px 100px;
+  /*margin: 100px 100px;*/
 }
 
 .pane h1{
-  text-align: center;
+  text-align: left;
   font-size: 48px;
   font-weight: 80;
 }
 
 .pane h2{
-  text-align: center;
+  text-align: left;
   font-size: 24px;
   font-weight: 80;
 }
@@ -80,7 +102,7 @@ p, div {
 
 /****************** FOOTER ****************/
 #footer {
-  position: absolute;
+  position: fixed;
   /*padding: 1em;*/
   bottom: 0;
   width: 100%;
@@ -165,4 +187,4 @@ p, div {
   padding-bottom: 20px;
 }
 
-/*I literally can't stop listening to "Love me like you do"*/
+/*I literally can't stop listening to "Love me like you do"
