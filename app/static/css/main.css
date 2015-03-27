@@ -29,8 +29,8 @@ p, div {
 .navbar{
   /*background-color: #E0FFE0;*/
   /*position: fixed;*/
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 18px;
   font-weight: 100;
   margin-bottom: 0px;
@@ -40,7 +40,6 @@ p, div {
 .navbar-default .navbar-nav>li>a {
   color: #FFADFF;
 }
-
 
 .navbar-btn{
   margin-top: 0px;
@@ -53,6 +52,10 @@ p, div {
   font-size: 18px;
   font-weight: 100;
   padding: 5px 15px;
+}
+
+.navbar-nav {
+  padding-top: 25px;
 }
   
 .btn-info {
