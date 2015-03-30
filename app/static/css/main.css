@@ -5,19 +5,20 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 50px;
-  font-weight: 120;
+  /*margin-bottom: 50px;*/
+  /*font-weight: 120;*/
 }
 
 /*Font Overrides*/
 /*Find better font.*/
 h1, h2, h3, h4, h5, h6 {
+
     font-family: 'PT Sans', sans-serif;
-    font-weight: 100; 
+    /*font-weight: 100; */
 }
 p, div {
     font-family: 'PT Sans', sans-serif;
-    font-weight: 100; 
+    /*font-weight: 100; */
 }
 
 .block-wrapper{
@@ -38,7 +39,7 @@ p, div {
 }
 
 .navbar-default .navbar-nav>li>a {
-  color: #FFADFF;
+  color: #FF66FF;
 }
 
 .navbar-btn{
@@ -55,12 +56,12 @@ p, div {
 }
 
 .navbar-nav {
-  padding-top: 25px;
+  padding-top: 10px;
 }
   
 .btn-info {
-  background-color: #FFADFF;
-  border-color: #FFADFF;
+  background-color: #FF66FF;
+  border-color: #FF66FF;
 }
 
 .btn-info:hover{
@@ -77,20 +78,27 @@ p, div {
 
 /****************** PANES ****************/
 .pane{
-  padding: 100px 100px;
+  padding: 100px 50px;
+  color: #737373;
   /*margin: 100px 100px;*/
 }
 
 .pane h1{
   text-align: left;
-  font-size: 48px;
-  font-weight: 80;
+  font-size: 55px;
+  font-weight: 700;
 }
 
 .pane h2{
   text-align: left;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.pane h3{
+  text-align: left;
   font-size: 24px;
-  font-weight: 80;
+  font-weight: 400;
 }
 
 .pane.light
@@ -99,7 +107,9 @@ p, div {
 
 .pane.dark
 {
-  background-color: #E1F7FA;
+  background-image: url("../img/splash-bg.jpg");
+  background-color: #000000;
+  /*color: #FFADFF;*/
 }
 
 
@@ -146,7 +156,7 @@ p, div {
 /****************** DASHBOARD ****************/
 #dashboard .pane{
   padding: 0px 0px;
-  background-color: #E1F7FA;
+  background-color: #000000;
 }
 
 #dashboard div#left {
@@ -188,6 +198,97 @@ p, div {
 .f2f-form .container {
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+form {
+  width: 450px;
+  margin: 17% auto;
+}
+
+
+/****************** Sign Up - Form ****************/
+.header {
+  font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+
+.description {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.3em;
+  margin: -2px 0 45px;
+}
+
+
+.input {
+  font-family: 'PT Sans', sans-serif;
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+
+}
+
+
+.button {
+  height: 44px;
+  border: none;
+}
+
+  
+#email {
+  font-size: 18px;
+  width: 60%;
+  background: #FDFCFB;
+  /*font-family: inherit;*/
+  color: #737373;
+  letter-spacing: 1px;
+  text-indent: 5%;
+  border-radius: 5px 0 0 5px;
+  /*outline: none;*/
+  /*outline: 1px solid #FF66FF;*/
+  /*box-shadow: 0px 0px 10px #FF66FF;*/
+  border: 2px solid #FF66FF;
+  /*box-shadow: 0 0 5px #CC7ACC;*/
+}
+
+
+#submit {
+  font-size: 18px;
+  width: 35%;
+  height: 46px;
+  background: #FF66FF;
+  /*font-family: inherit;*/
+  /*font-weight: bold;*/
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+  
+
+#submit:hover {
+  background: #CC7ACC;
+}
+  
+input:focus {
+  outline: none;
+  outline: 2px solid #FF66FF;
+  box-shadow: 0 0 5px #CC7ACC;
+}
+
+#homepage div#left {
+  width: 50%;
+  height: 300px;
+  float: left;
+}
+
+#homepage div#right {
+  padding-left: 50px;
+  margin-left: 50%;
+  height: 300px;
 }
 
 /*I literally can't stop listening to "Love me like you do"
