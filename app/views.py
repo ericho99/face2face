@@ -47,6 +47,11 @@ def join():
 def host():
 	return render_template('video-host-setup.html')
 
+# HOST STREAM
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 # TEAM PAGE
 @app.route('/team')
 def team():

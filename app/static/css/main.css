@@ -112,6 +112,9 @@ p, div {
   /*color: #FFADFF;*/
 }
 
+.pane.about{
+  padding: 0px 50px;
+}
 
 /****************** FOOTER ****************/
 #footer {
