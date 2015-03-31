@@ -1,6 +1,7 @@
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
+
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 			<span class="sr-only">Toggle navigation</span>
@@ -8,7 +9,11 @@
 <!-- 					<span class="icon-bar"></span>
 			<span class="icon-bar"></span> -->
 			</button>
-			<a class="navbar-brand" href="/index">Face2Face</a>
+			<!-- class="navbar-brand" -->
+			<a  href = "/index">
+			  <img src="../static/img/logo.png" alt="logo" style="width:60px;height:60px;border:0">
+			</a>
+			<!-- <a class="navbar-brand" href="/index">FaceToFace</a> -->
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,25 +21,23 @@
 			<ul class="nav navbar-nav navbar-right">
 
 				<!-- Dashboard -->
+
+				<!-- Should Only Render when Logged In -->
 				<li>
-					<a href="/dashboard">Dashboard</a>
+					<a href="/dashboard">about</a>
 				</li>
 
-				<li class="dropdown">
-					<!-- My Account Controls -->
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>		      
-					
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="/cs">Uploaded Videos</a></li>
-						<li><a href="/cs">Downloaded Videos</a></li>
-						<li><a href="/cs">Account Settings</a></li>
-						<!-- <li class="divider"></li> -->
-					</ul>
+				<li>
+					<a href="/team">team</a>
+				</li>
+
+				<li>
+					<a href="/dashboard">dashboard</a>
 				</li>
 
 	            <li>
 	                <p class="navbar-btn">
-	                    <a href="/login" class="btn btn-info">Login</a>
+	                    <a href="/login" class="btn btn-info">login</a>
 	                </p>
 	            </li>
 

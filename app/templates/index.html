@@ -1,16 +1,16 @@
 <!-- Main Page -->
 {% extends "base.html" %}
 
-{% block splash %}
+<!-- {% block splash %}
 <div class="splash fade-in">
 	<h1 class="splash-title">Face2Face</h1>
 	<a href="#" class="splash-arrow"><img src="../static/img/down-arrow.png" alt="" /></a>
 </div>
 <div class="wrapper">
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
-<section class="pane dark">
+<!-- <section class="pane dark">
 	<h1>Dishes for the Masses</h1>
 	<h2>a new way to learn how to cook</h2>
 </section>
@@ -18,17 +18,46 @@
 <section class="pane light">
 	<h1>Everyone eats.</h1>
 	<h2>You're going to cook anyways. Might as well start making money off of it.</h2>
-</section>
+</section> -->
 
-<section class="pane dark">
-	<h1>So what are you waiting for?</h1>
-	<h2>
-		Join 
-		<a href="/soytest">
-			here
-		</a>
-		. Classes start at $1.
-	</h2>
+<!-- <section class="pane">
+	<h1>introducing face2face</h1>
+	<h2>because ANYONE can cook. except Jason Brooks.</h1>
+	<div class="input">
+        <input type="text" class="button" id="email" name="email" placeholder="name@example.com">
+        <input type="submit" class="button" id="submit" value="sign up">
+	</div>
 </section>
+ -->
+
+<div id="homepage">
+	<section class="pane">
+
+		<div id="left">
+			<h1>introducing face2face</h1>
+			<h2>because ANYONE can cook</h1>
+			<div class="input">
+		        <input type="text" class="button" id="email" name="email" placeholder="name@example.com">
+		        <input type="submit" class="button" id="submit" value="sign up">
+			</div>
+		</div>  
+		
+		<div id="right">
+		<img src="../static/img/mockup.png" alt="logo" style="height:350px;border:0">
+		</div>
+	</section>
+</div>
+
+
+<!-- 
+<section class="pane">
+	<h1>How it Works.</h1>
+	<h2>You're going to cook anyways. Might as well start making money off of it.</h2>
+</section> 
+
+<section class="pane">
+	<h1>How it Works.</h1>
+	<h2>You're going to cook anyways. Might as well start making money off of it.</h2>
+</section>  -->
 
 {% endblock %}
