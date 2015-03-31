@@ -47,6 +47,11 @@ def join():
 def host():
 	return render_template('video-host-setup.html')
 
+# TEAM PAGE
+@app.route('/team')
+def team():
+    return render_template('team.html')
+
 # COMING SOON
 @app.route('/cs')
 @app.route('/comingsoon')
