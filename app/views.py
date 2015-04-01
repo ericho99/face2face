@@ -1,4 +1,5 @@
 from app import app
+from app.models import *
 from flask import Flask, render_template
 from flask import url_for, redirect, request, flash
 from .forms import RegistrationForm
@@ -123,6 +124,11 @@ def paypal_status(token):
 def paypal_cancel():
     return redirect(url_for('index'))
 
-@app.route("/live")
-def live():
-    return render_template('livestream.html')
+@app.route("/live/<int:streamno>")
+def live(streamno):
+    s = Stream.query.filter(Stream.stream==streamno).first()
+    return render_template('livestream.html',url=s.url)
+
+
+
+
