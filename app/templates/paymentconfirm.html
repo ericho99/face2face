@@ -4,7 +4,7 @@
 <section class="container">
 	<center>
 		<h1>Looks good! Thanks for choosing face2face</h1>
-		<h2><a href="{{ url_for('paypal_do', token=token) }}">Click here to confirm your payment and enter the livestream</a></h2>
+		<h2><a href="{{ url_for('paypal_do', token=token) }}">Click here to confirm your payment of {{ amount }} dollars</a></h2>
 		<a href="/paypal/cancel">Click here to cancel your payment</a>
 	</center>
 </section>

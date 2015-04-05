@@ -16,6 +16,19 @@ class User(db.Model):
     credit = db.Column(db.Integer)
     paypal_username = db.Column(db.String(26))
 
+    # Flask-Login integration
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
     def __repr__(self):
         return '#%d: username: %s password: %s credit: %d paypal_username: %s'\
             % (self.id,self.username,self.psw,self.credit,self.paypal_username)
