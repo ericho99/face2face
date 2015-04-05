@@ -11,6 +11,7 @@ class User(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(26))
+    email = db.Column(db.String(26))
     psw = db.Column(db.String(26)) # encrypt or hash
     credit = db.Column(db.Integer)
     paypal_username = db.Column(db.String(26))

@@ -29,6 +29,9 @@ def register():
     # need to take info from the form and create a user databse
 	form = RegistrationForm(request.form)
 	if request.method == 'POST' and form.validate():
+        added_user = User(username = form.username, email = form.email, 
+            psw = form.password, credit = 0, paypal_username = "")
+        db.session.add(added_user)
 		return redirect(url_for('login'))
 	return render_template('register.html', form=form)
 
