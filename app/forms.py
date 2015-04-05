@@ -1,5 +1,6 @@
 from flask.ext.wtf import Form
-from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from wtforms import Form, BooleanField, TextField, PasswordField, validators, StringField
+from wtforms.validators import DataRequired
 
 class RegistrationForm(Form):
     username = TextField('Username', [validators.Length(min=4, max=25)])
@@ -11,3 +12,7 @@ class RegistrationForm(Form):
     confirm = PasswordField('Repeat Password')
     accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
 
+class LoginForm(Form):
+    username = TextField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('remember_me', default=False)
