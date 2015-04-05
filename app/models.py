@@ -16,8 +16,8 @@ class User(db.Model):
     paypal_username = db.Column(db.String(26))
 
     def __repr__(self):
-        return '#%d: name: %s credit_card: %d'\
-            % (self.id, self.name, self.credit)
+        return '#%d: username: %s password: %s credit: %d paypal_username: %s'\
+            % (self.id,self.username,self.psw,self.credit,self.paypal_username)
 
 class StreamHosts(db.Model):
     __tablename__ = 'stream_hosts'
@@ -26,15 +26,15 @@ class StreamHosts(db.Model):
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
     stream_price = db.Column(db.Float)
-    stream = db.Column(db.Integer) #hashed stream number
-    name = db.Column(db.String(26))
+    stream_number = db.Column(db.Integer) #hashed stream number
+    stream_name = db.Column(db.String(26))
     description = db.Column(db.String(200))
-    url = db.Column(db.String(100))
+    embed_url = db.Column(db.String(100))
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     def __repr__(self):
-         return '#%d: streamnumber: %d name: %s description: %s url: %s'\
-            % (self.id, self.stream, self.name, self.description, self.url)
+         return '#%d: host: %d streamnumber: %d streamname: %s description: %s stream_price: %f url: %s'\
+            % (self.id,self.host_id,self.stream_number,self.stream_name,self.description,self.stream_price,self.embed_url)
 
 class StreamViewers(db.Model):
     __tablename__ = 'stream_viewers'
@@ -47,6 +47,8 @@ class StreamViewers(db.Model):
     viewer_rating = db.Column(db.Integer)
     
     def __repr__(self):
-        return '#%d: viewer_id: %d stream_id: %d joined: %s quit: %s rating: '\
+        return '#%d: viewer_id: %d stream_id: %d joined: %s quit: %s rating: %d'\
             % (self.id, self.viewer_id, self.stream_id, self.join_time, 
-                self.quit_time, self.viewer_rating)
+                self.leave_time, self.viewer_rating)
+
+
