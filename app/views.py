@@ -68,19 +68,19 @@ def comingsoon():
   return render_template('comingsoon.html')
 
 # testing the payment capability
-@app.route('/soytest')
-def soytest():
-    return render_template('soytest.html')
+# @app.route('/soytest')
+# def soytest():
+#    return render_template('soytest.html')
 
 @app.route('/payment')
 def payment():
     return render_template('payment.html')
 
 # will need to make this variable for different price classes
-@app.route('/paypal/redirect')
-def paypal_redirect():
+@app.route('/paypal/redirect/<string:amount>')
+def paypal_redirect(amount):
     kw = {
-        'amt': '1.00',
+        'amt': amount,
         'currencycode': 'USD',
         'returnurl': url_for('paypal_confirm', _external=True),
         'cancelurl': url_for('paypal_cancel', _external=True),
@@ -118,7 +118,6 @@ def paypal_status(token):
     checkout_response = interface.get_express_checkout_details(token=token)
 
     if checkout_response['CHECKOUTSTATUS'] == 'PaymentActionCompleted':
-        # Here you would update a database record.
         return redirect(url_for('live'))
     else:
         return render_template('paymenterror.html', error=checkout_response['CHECKOUTSTATUS'])
@@ -131,6 +130,25 @@ def paypal_cancel():
 def live(streamno):
     s = Stream.query.filter(Stream.stream==streamno).first()
     return render_template('livestream.html',url=s.url)
+
+@app.route("/addcredits/<string:username>", methods = ['GET', 'POST'])
+def add_credits(username):
+    if username is None:
+        return redirect('/login')
+    user=User.query.filter(User.username==username).first()
+    if user is None:
+        return redirect('/register')
+    if user.credit is None:
+        user.credit=0
+        db.session.commit()
+
+    if request.method == 'POST':
+        addcredits=request.form['amount']
+        return redirect(url_for('paypal_redirect', amount=addcredits))
+
+    return render_template('credits.html', currentcredits=user.credit)
+
+
 
 
 

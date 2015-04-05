@@ -5,8 +5,8 @@ db.drop_all()
 db.create_all()
 
 u = User(username='brianblowspeen',psw='dickbutt',credit=0)
-u2 = User(username='Eric Ho',psw='imawesome',credit=5)
-u3 = User(username='Soy Lee',psw='soylee',credit=3.6)
+u2 = User(username='ericho',psw='imawesome',credit=5)
+u3 = User(username='soylee',psw='soylee',credit=3.6)
 u4 = User(username='David',psw='d',credit=0)
 u5 = User(username='A',psw='a',credit=100000000)
 
@@ -23,7 +23,7 @@ db.session.add(s)
 db.session.commit()
 
 stream_id = s.id
-viewer_id = User.query.filter(User.username=='Eric Ho').first().id
+viewer_id = User.query.filter(User.username=='ericho').first().id
 viewer_id2 = User.query.filter(User.username=='A').first().id
 #null viewer rating for now
 v = StreamViewers(viewer_id=viewer_id,stream_id=stream_id,join_time=datetime(2015,4,5,1,00),leave_time=datetime(2015,4,5,4,00))
