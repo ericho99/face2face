@@ -4,28 +4,105 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="dashboard">
 
-	<!-- [ Join ] && [ Start] -->
-	<section class="pane">
-	
-		<div id="left">
-			<div class="dash-button">
-				<a href="/host" class="btn btn-info">
-					host
-				</a>
-			</div>
-		</div>  
-		
-		<div id="right">
-			<div class="dash-button">
-				<a href="/join" class="btn btn-info">
-					join
-				</a>
-			</div>
-		</div>
-	</section>
+<link rel="stylesheet" href="../static/css/dashboard.css">
 
+<center><h1> Joinable Streams </h1></center>
+
+<div class="wrapper">
+
+    <div class="products category">
+        <ul class="list">
+            <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food1.jpg">
+                    <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">	<a href="javascript:;">Ramen</a>
+ <span>$ 11.00</span>
+
+                    <p class="descTitle">Chef Jon Takahashi </p>
+                    <p>Make delicious pork based ramen with 0 Star Micheln Chef Jon Takahashi. Ramen is a Japanese noodle soup dish. It consists of Chinese-style wheat noodles served in a meat- or fish-based broth, often flavored with soy sauce or miso, and uses toppings such as sliced pork, dried seaweed, kamaboko, and green onions. </p>
+                </div>
+            </li>
+            
+ <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food2.jpg">
+                    <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">	
+                    <a href="javascript:;">Korean Fried Chicken</a>
+ <span>$ 8.00</span>
+
+                    <p class="descTitle">Chef Na Eun</p>
+                    <p> Fried chicken is a dish consisting of chicken pieces usually from broiler chickens which have been floured or battered and then pan-fried, deep fried, or pressure fried. The breading adds a crisp coating or crust to the exterior. </p>
+                </div>
+            </li>
+                    
+ <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food3.jpg">
+                    <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">	
+                    <a href="javascript:;">Peanut Butter and Jelly Sandwich</a>
+ <span>$ 3.00</span>
+
+                    <p class="descTitle">Chef Eric</p>
+                    <p>I cook good.</p>
+                </div>
+            </li>
+   
+ <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food4.jpg">
+                    <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">	
+                    <a href="javascript:;">Caviar on a Spoon</a>
+ <span>$ 1.00</span>
+
+                    <p class="descTitle">Chef Jefferey</p>
+                    <p>Material Costs: Spoon 1$ Stream 1$ Caviar 1000$</p>
+                </div>
+            </li>
+  <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food5.jpeg">
+                    <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">	<a href="javascript:;">Burgers and Fries</a>
+ <span>$ 11.00</span>
+
+                    <p class="descTitle">Chef Bob</p>
+                    <p>A hamburger is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bun.</p>
+                </div>
+            </li>
+             
+ <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food6.jpg">
+                    <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">	
+                    <a href="javascript:;">Cereal</a>
+ <span>$ 3.00</span>
+
+                    <p class="descTitle">Chef Eric</p>
+                    <p> I cook good.</p>
+                </div>
+            </li>                
+        </ul>
+    </div>
 </div>
+
+<script type="text/javascript" src="../static/js/dashboard.js"></script>
 
 {% endblock %}
