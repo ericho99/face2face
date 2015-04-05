@@ -15,22 +15,25 @@ def index():
 # LOGIN
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	error = None
-	if request.method == 'POST':
+    error = None
+    if request.method == 'POST':
         # dummy until we get the user database working
-		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-			error = 'Invalid Credentials. Please try again.'
-		else:
-			return redirect(url_for('soytest')) # once logged in go to payment page
-	return render_template('login.html', error=error)
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('soytest')) # once logged in go to payment page
+    return render_template('login.html', error=error)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     # need to take info from the form and create a user databse
-	form = RegistrationForm(request.form)
-	if request.method == 'POST' and form.validate():
-		return redirect(url_for('login'))
-	return render_template('register.html', form=form)
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        added_user = User(username = form.username, email = form.email, 
+            psw = form.password, credit = 0, paypal_username = "")
+        db.session.add(added_user)
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
 
 # DASHBOARD
 # -login dependent
@@ -41,12 +44,12 @@ def dashboard():
 # JOIN STREAM
 @app.route('/join')
 def join():
-	return render_template('joinable-streams.html')
+    return render_template('joinable-streams.html')
 
 # HOST STREAM
 @app.route('/host')
 def host():
-	return render_template('video-host-setup.html')
+    return render_template('video-host-setup.html')
 
 # HOST STREAM
 @app.route('/about')
@@ -65,27 +68,27 @@ def comingsoon():
   return render_template('comingsoon.html')
 
 # testing the payment capability
-@app.route('/soytest')
-def soytest():
-    return render_template('soytest.html')
+# @app.route('/soytest')
+# def soytest():
+#    return render_template('soytest.html')
 
 @app.route('/payment')
 def payment():
-	return render_template('payment.html')
+    return render_template('payment.html')
 
 # will need to make this variable for different price classes
-@app.route('/paypal/redirect')
-def paypal_redirect():
-	kw = {
-		'amt': '1.00',
-		'currencycode': 'USD',
-		'returnurl': url_for('paypal_confirm', _external=True),
-		'cancelurl': url_for('paypal_cancel', _external=True),
-		'paymentaction': 'Sale'
-	}
+@app.route('/paypal/redirect/<string:amount>')
+def paypal_redirect(amount):
+    kw = {
+        'amt': amount,
+        'currencycode': 'USD',
+        'returnurl': url_for('paypal_confirm', _external=True),
+        'cancelurl': url_for('paypal_cancel', _external=True),
+        'paymentaction': 'Sale'
+    }
 
-	setexp_response = interface.set_express_checkout(**kw)
-	return redirect(interface.generate_express_checkout_redirect_url(setexp_response.token))
+    setexp_response = interface.set_express_checkout(**kw)
+    return redirect(interface.generate_express_checkout_redirect_url(setexp_response.token))
 
 @app.route('/paypal/confirm')
 def paypal_confirm():
@@ -115,7 +118,6 @@ def paypal_status(token):
     checkout_response = interface.get_express_checkout_details(token=token)
 
     if checkout_response['CHECKOUTSTATUS'] == 'PaymentActionCompleted':
-        # Here you would update a database record.
         return redirect(url_for('live'))
     else:
         return render_template('paymenterror.html', error=checkout_response['CHECKOUTSTATUS'])
@@ -128,6 +130,25 @@ def paypal_cancel():
 def live(streamno):
     s = Stream.query.filter(Stream.stream==streamno).first()
     return render_template('livestream.html',url=s.url)
+
+@app.route("/addcredits/<string:username>", methods = ['GET', 'POST'])
+def add_credits(username):
+    if username is None:
+        return redirect('/login')
+    user=User.query.filter(User.username==username).first()
+    if user is None:
+        return redirect('/register')
+    if user.credit is None:
+        user.credit=0
+        db.session.commit()
+
+    if request.method == 'POST':
+        addcredits=request.form['amount']
+        return redirect(url_for('paypal_redirect', amount=addcredits))
+
+    return render_template('credits.html', currentcredits=user.credit)
+
+
 
 
 
