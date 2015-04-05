@@ -5,29 +5,41 @@
 <div class="f2f-form">
 	<div class="container">
 		<h1>Stream Creation</h1>
-		<form>
+		<form method="POST" action="/host">
 
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Stream Name</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="What are you cooking?">
+		    <label>Stream Name</label>
+		    <input name="streamname" type="text" class="form-control" placeholder="What are you cooking?">
 		  </div>
 
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Description</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="A short description.">
+		  <label>Start Time</label><br>
+			  <input name="start_time" type="datetime-local">
+		  </div>
+
+		  <div class="form-group">
+		  <label>End Time</label><br>
+			  <input name="end_time" type="datetime-local">
+		  </div>		  
+
+		  <div class="form-group">
+		  <label>Livestream URL</label>
+			  <input name="url" type="text" class="form-control" placeholder="Enter stream URL">
+		  </div>
+
+		  <div class="form-group">
+		  <label>Price</label> <br>
+			  <input type="number" name="price" placeholder="0" min="0">
 		  </div>
 
  		  <div class="form-group">
-		  <label for="exampleInputPassword1">Ingredients</label>
-			  <textarea class="form-control" rows="7" placeholder="4 Cups - Carrots..."></textarea>
-		 </div>
+		  <label>Description</label>
+			  <textarea name="description" class="form-control" rows="7" placeholder="Tell us about what you're cooking"></textarea>
+		  </div>
 
-		  <div class="form-group">
-		  <label for="exampleInputPassword1">Equipment</label>
-			  <textarea class="form-control" rows="7" placeholder="Spatula, Wood-fire Oven, Fork..."></textarea>
-		 </div>
 
-		  <button type="Create" class="btn btn-default">Create</button>
+
+		  <input type=submit value=Create>
 		</form>
 	</div>
 </div>

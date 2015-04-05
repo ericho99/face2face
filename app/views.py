@@ -4,6 +4,8 @@ from flask import Flask, render_template
 from flask import url_for, redirect, request, flash
 from .forms import RegistrationForm
 from config import config, interface
+import random
+from random import randint
 
 # HOMEPAGE
 @app.route('/index')
@@ -47,8 +49,14 @@ def join():
     return render_template('joinable-streams.html')
 
 # HOST STREAM
-@app.route('/host')
+@app.route('/host', methods=['GET', 'POST'])
 def host():
+    if request.method == 'POST':
+        r = randint(100,1000000000)
+        s = StreamHosts(start_time=datetime(2015,4,5,1,30),end_time=datetime(2015,4,5,2,30),stream_price=request.form['price'],stream_number=r,stream_name=request.form['streamname'],description=request.form['description'],embed_url=request.form['url'],host_id=1)
+        db.session.add(s)
+        db.session.commit()
+        return redirect('/live/'+str(r))
     return render_template('video-host-setup.html')
 
 # HOST STREAM
@@ -128,8 +136,8 @@ def paypal_cancel():
 
 @app.route("/live/<int:streamno>")
 def live(streamno):
-    s = Stream.query.filter(Stream.stream==streamno).first()
-    return render_template('livestream.html',url=s.url)
+    s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
+    return render_template('livestream.html',url=s.embed_url)
 
 @app.route("/addcredits/<string:username>", methods = ['GET', 'POST'])
 def add_credits(username):
