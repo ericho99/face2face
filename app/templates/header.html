@@ -39,10 +39,20 @@
 					<a href="/host">host</a>
 				</li>
 
+				<li>
+					<a href="/addcredits">add credits</a>
+				</li>
+
 	            <li>
-	                <p class="navbar-btn">
-	                    <a href="/login" class="btn btn-info">login</a>
-	                </p>
+	            	{% if current_user.is_authenticated() %}
+	            		<p class="navbar-btn">
+		                    <a href="/logout" class="btn btn-info">logout</a>
+		                </p>
+	            	{% else %}
+		                <p class="navbar-btn">
+		                    <a href="/login" class="btn btn-info">login</a>
+		                </p>
+		            {% endif %}
 	            </li>
 
 			</ul>
