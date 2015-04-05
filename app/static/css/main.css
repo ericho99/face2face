@@ -7,18 +7,19 @@ body {
   /* Margin bottom by footer height */
   /*margin-bottom: 50px;*/
   /*font-weight: 120;*/
+  padding-bottom: 50px;
 }
 
 /*Font Overrides*/
 /*Find better font.*/
 h1, h2, h3, h4, h5, h6 {
-
-    font-family: 'Raleway', sans-serif;
-    /*font-weight: 100; */
+  color: #737373;
+  font-family: 'Raleway', sans-serif;
+  /*font-weight: 100; */
 }
 p, div {
-    font-family: 'Raleway', sans-serif;
-    /*font-weight: 100; */
+  font-family: 'Raleway', sans-serif;
+  /*font-weight: 100; */
 }
 
 .block-wrapper{
@@ -92,7 +93,7 @@ p, div {
 .pane h2{
   text-align: left;
   font-size: 30px;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .pane h3{
@@ -288,14 +289,19 @@ input:focus {
 
 #homepage div#left {
   width: 50%;
-  height: 500px;
+  height: 400px;
   float: left;
 }
 
 #homepage div#right {
   padding-left: 40px;
   margin-left: 50%;
-  height: 500px;
+  height: 400px;
+}
+
+#homepage div#right img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*I literally can't stop listening to "Love me like you do"
