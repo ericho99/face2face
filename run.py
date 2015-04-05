@@ -11,5 +11,5 @@ if __name__ == '__main__':
 	if len(cmd_args) > 1 and cmd_args[1] == "test":
 		#do a test; facilitated by a pass right now
 		pass 
-    app.run(debug=True)
+	app.run(debug=True)
 

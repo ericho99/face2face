@@ -159,19 +159,19 @@ p, div {
 /****************** DASHBOARD ****************/
 #dashboard .pane{
   padding: 0px 0px;
-  background-color: #000000;
+  background-color: white;
 }
 
 #dashboard div#left {
   width: 50%;
   height: 300px;
   float: left;
-  background-color: #949494;
+  /*background-color: #949494;*/
 }
 #dashboard div#right {
   margin-left: 50%;
   height: 300px;
-  background-color: #949494;
+  /*background-color: #949494;*/
 }
 
 #dashboard .dash-button{
