@@ -16,24 +16,29 @@ def index():
 
 # LOGIN
 @app.route('/login', methods=['GET', 'POST'])
+@app.route('/')
 def login():
     error = None
     if request.method == 'POST':
         # dummy until we get the user database working
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
+        current_user = User.query.filter_by(username = request.form['username']).first()
+        if current_user.psw != request.form['password']:
+            error = 'Invalid username or password. Please try again.'
         else:
-            return redirect(url_for('soytest')) # once logged in go to payment page
+            return redirect(url_for('dashboard')) # once logged in go to payment page
     return render_template('login.html', error=error)
-
+# @app.route('/user/<username>')
+# def profile(username):
+#     pass
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     # need to take info from the form and create a user databse
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
-        added_user = User(username = form.username, email = form.email, 
-            psw = form.password, credit = 0, paypal_username = "")
+        added_user = User(username = form.username.data, email = form.email.data, 
+            psw = form.password.data, credit = 0, paypal_username = "")
         db.session.add(added_user)
+        db.session.commit()
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
