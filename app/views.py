@@ -13,8 +13,8 @@ def load_user(id):
     return User.query.get(int(id))
 
 # HOMEPAGE
-@app.route('/index')
-@app.route('/')
+@app.route('/index', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
   return render_template('index.html')
 
@@ -29,21 +29,19 @@ def login():
         user = User.query.filter(User.username==username).first()
         if user!=None and user.psw == form.password.data:
             login_user(user)
-            return redirect(url_for("dashboard"))
+            return redirect(url_for('dashboard'))
         else:
             error="Username or password incorrect"
 
     return render_template('login.html', form=form, error=error)
-# @app.route('/user/<username>')
-# def profile(username):
-#     pass
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     # need to take info from the form and create a user databse
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
         added_user = User(username = form.username.data, email = form.email.data, 
-            psw = form.password.data, credit = 0, paypal_username = "")
+          psw = form.password.data, credit = 0, paypal_username = "")
         db.session.add(added_user)
         db.session.commit()
         return redirect(url_for('login'))
