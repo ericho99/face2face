@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import Form, BooleanField, TextField, PasswordField, validators, StringField
+from wtforms import Form, BooleanField, TextField, PasswordField, validators, RadioField
 from wtforms.validators import DataRequired
 
 class RegistrationForm(Form):
