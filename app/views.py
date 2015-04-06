@@ -142,7 +142,7 @@ def paypal_status(token):
 
     if checkout_response['CHECKOUTSTATUS'] == 'PaymentActionCompleted':
         user=User.query.filter(User.username==current_user.username).first()
-        addcredit=int(math.floor(float(checkout_response['AMT'])))
+        addcredit=float(checkout_response['AMT'])
         user.credit=user.credit+addcredit
         db.session.commit()
 
