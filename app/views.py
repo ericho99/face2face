@@ -95,7 +95,29 @@ def team():
 def comingsoon():
   return render_template('comingsoon.html')
 
-# will need to make this variable for different price classes
+@app.route("/live/<int:streamno>")
+@login_required
+def live(streamno):
+    s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
+    return render_template('livestream.html',url=s.embed_url)
+
+@app.route("/addcredits", methods = ['GET', 'POST'])
+@login_required
+def add_credits():
+    user=User.query.filter(User.username==current_user.username).first()
+    if user is None:
+        return redirect('/register')
+    if user.credit is None:
+        user.credit=0
+        db.session.commit()
+
+    if request.method == 'POST':
+        addcredits=request.form['amount']
+        return redirect(url_for('paypal_redirect', amount=addcredits))
+
+    return render_template('credits.html', currentcredits=user.credit)
+
+# paypal recharge credits
 @app.route('/paypal/redirect/<string:amount>')
 @login_required
 def paypal_redirect(amount):
@@ -154,29 +176,6 @@ def paypal_status(token):
 @login_required
 def paypal_cancel():
     return redirect(url_for('index'))
-
-@app.route("/live/<int:streamno>")
-@login_required
-def live(streamno):
-    s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
-    return render_template('livestream.html',url=s.embed_url)
-
-@app.route("/addcredits", methods = ['GET', 'POST'])
-@login_required
-def add_credits():
-    user=User.query.filter(User.username==current_user.username).first()
-    if user is None:
-        return redirect('/register')
-    if user.credit is None:
-        user.credit=0
-        db.session.commit()
-
-    if request.method == 'POST':
-        addcredits=request.form['amount']
-        return redirect(url_for('paypal_redirect', amount=addcredits))
-
-    return render_template('credits.html', currentcredits=user.credit)
-
 
 
 
