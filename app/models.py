@@ -13,7 +13,7 @@ class User(db.Model):
     username = db.Column(db.String(26))
     email = db.Column(db.String(26))
     psw = db.Column(db.String(26)) # encrypt or hash
-    credit = db.Column(db.Integer)
+    credit = db.Column(db.Float)
     paypal_username = db.Column(db.String(26))
 
     # Flask-Login integration
