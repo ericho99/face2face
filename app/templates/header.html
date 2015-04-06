@@ -39,9 +39,11 @@
 					<a href="/host">host</a>
 				</li>
 
-				<li>
-					<a href="/addcredits">add credits</a>
-				</li>
+				{% if current_user.is_authenticated() %}
+					<li>
+						<a href="/addcredits">add credits</a>
+					</li>
+				{% endif %}
 
 	            <li>
 	            	{% if current_user.is_authenticated() %}
