@@ -59,7 +59,6 @@ def logout():
 # DASHBOARD
 # -login dependent
 @app.route('/dashboard')
-@login_required
 def dashboard():
     if current_user.is_authenticated() is False:
         return redirect(url_for('login'))
@@ -74,7 +73,6 @@ def join():
 
 # HOST STREAM
 @app.route('/host', methods=['GET', 'POST'])
-@login_required
 def host():
     if current_user.is_authenticated() is False:
         return redirect(url_for('login'))
