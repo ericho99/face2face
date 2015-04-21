@@ -8,8 +8,26 @@
   <a href="{{url}}">{{url}}</a>
 </p>
 </div>
+<div id="chat_div">
+</div>
 
 <link rel="stylesheet" href="../static/css/live.css"> 
 <script src="http://cdn.embed.ly/jquery.embedly-3.1.1.min.js"></script>
 <script src="../static/js/live.js"></script>
+<link rel="stylesheet" href="../static/css/jquery-ui.min.css">
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="../static/css/jquery.ui.chatbox.css">
+<script src="../static/js/jquery.ui.chatbox.js"></script>
+<script>
+$(document).ready(function(){
+  $("#chat_div").chatbox({id : "chat_div",
+                          title : "Chef Chat",
+                          user : "{{username}}",
+                          offset: 200,
+                          messageSent: function(id, user, msg){
+                               $("#chat_div").chatbox("option", "boxManager").addMsg(user,msg);
+                          }});
+});
+</script>
 {% endblock %}
