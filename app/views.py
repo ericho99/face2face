@@ -59,11 +59,13 @@ def logout():
 # DASHBOARD
 # -login dependent
 @app.route('/dashboard')
+
 def dashboard():
     if current_user.is_authenticated() is False:
         return redirect(url_for('login'))
     else:
-        return render_template('dashboard.html')
+        streams = db.session.query(StreamHosts).all()
+        return render_template('dashboard.html', streams = streams)
 
 
 # JOIN STREAM

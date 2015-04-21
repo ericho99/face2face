@@ -11,11 +11,28 @@
 
 <center><h1> Joinable Streams </h1></center>
 
-<div class="wrapper">
 
+<div class="wrapper">
     <div class="products category">
         <ul class="list">
-            <li>
+{% if streams != None %}
+    {% for stream in streams %}
+ <li>
+                <div class="wrapimg">
+                    <img src="../static/img/food1.jpg">
+                    <div class="addPro"> <a href="/live/{{ stream.stream_number }}">+ Join Stream</a> 
+                    </div>
+                </div>
+                <div class="titlePro">  <a href="javascript:;">{{ stream.stream_name }}</a>
+ <span>$ {{ "%0.2f" % stream.stream_price }}</span>
+
+                    <p class="descTitle">Chef Jon Takahashi </p>
+                    <p>{{stream.description}}</p>
+                </div>
+            </li>
+    {% endfor %}
+{% endif %}
+ <li>
                 <div class="wrapimg">
                     <img src="../static/img/food1.jpg">
                     <div class="addPro"> <a href="javascript:;">+ Join Stream</a> 
