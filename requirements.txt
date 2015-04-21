@@ -1,8 +1,9 @@
 Flask==0.9
-Jinja2=2.6
+Jinja2==2.6
 Flask-WTF==0.9.5
-paypal=1.2.0
+paypal==1.2.0
 Flask-SQLAlchemy==0.16
 SQLAlchemy==0.8.0
 Flask-Login==0.2.11
 loginform==1.0
+gunicorn==0.17.2
