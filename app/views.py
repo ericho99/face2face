@@ -82,7 +82,7 @@ def host():
     else:
         if request.method == 'POST':
             r = randint(100,1000000000)
-            s = StreamHosts(start_time=datetime(2015,4,5,1,30),end_time=datetime(2015,4,5,2,30),stream_price=request.form['price'],stream_number=r,stream_name=request.form['streamname'],description=request.form['description'],embed_url=request.form['url'],host_id=current_user.id)
+            s = StreamHosts(start_time=datetime(2015,4,5,1,30),end_time=datetime(2015,4,5,2,30),stream_price=request.form['price'],stream_number=r,stream_name=request.form['streamname'],description=request.form['description'],embed_url=request.form['url'],thumbnail=request.form['thumbnail'],host_id=current_user.id)
             db.session.add(s)
             db.session.commit()
             return redirect('/live/'+str(r))
