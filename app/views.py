@@ -65,7 +65,8 @@ def dashboard():
         return redirect(url_for('login'))
     else:
         streams = db.session.query(StreamHosts).all()
-        return render_template('dashboard.html', streams = streams)
+        users = db.session.query(User)
+        return render_template('dashboard.html', streams = streams, db = db, User = User)
 
 
 # JOIN STREAM

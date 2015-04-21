@@ -25,8 +25,7 @@
                 </div>
                 <div class="titlePro">  <a href="javascript:;">{{ stream.stream_name }}</a>
  <span>$ {{ "%0.2f" % stream.stream_price }}</span>
-
-                    <p class="descTitle">Chef Jon Takahashi </p>
+                    <p class="descTitle">Chef {{ db.session.query(User).get(stream.host_id).username }}</p>
                     <p>{{stream.description}}</p>
                 </div>
             </li>
