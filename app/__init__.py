@@ -6,7 +6,7 @@ from flask.ext.login import LoginManager
 app = Flask(__name__)
 app.config.from_object('config')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/asdf.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
 lm = LoginManager()
