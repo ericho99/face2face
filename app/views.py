@@ -108,7 +108,8 @@ def comingsoon():
 @login_required
 def live(streamno):
     s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
-    return render_template('livestream.html',url=s.embed_url,stream_name=s.stream_name,username=current_user.username)
+    chef_name = User.query.get(s.host_id).username
+    return render_template('livestream.html',url=s.embed_url,stream_name=s.stream_name,username=current_user.username, chef_name = chef_name)
 
 @app.route("/addcredits", methods = ['GET', 'POST'])
 @login_required
