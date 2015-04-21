@@ -4,7 +4,7 @@ from app.models import *
 db.drop_all()
 db.create_all()
 
-u = User(username='brianblowspeen',psw='dickbutt',credit=0)
+u = User(username='brianli',psw='dickbutt',credit=0)
 u2 = User(username='ericho',psw='imawesome',credit=5)
 u3 = User(username='soylee',psw='soylee',credit=3.6)
 u4 = User(username='David',psw='d',credit=0)
@@ -17,8 +17,8 @@ db.session.add(u4)
 db.session.add(u5)
 db.session.commit()
 
-host_id = User.query.filter(User.username=='brianblowspeen').first().id
-s = StreamHosts(start_time=datetime(2015,4,5,1,30),end_time=datetime(2015,4,5,3,30),stream_price=1.2,stream_number=19836581,stream_name='brians cooking show',description='brian is cooking and shit',embed_url='https://www.youtube.com/watch?v=Zw8iljkD1So',host_id=host_id)
+host_id = User.query.filter(User.username=='brianli').first().id
+s = StreamHosts(start_time=datetime(2015,4,5,1,30),end_time=datetime(2015,4,5,3,30),stream_price=1.2,stream_number=19836581,stream_name='brians cooking show',description='brian cooks!',embed_url='https://www.youtube.com/watch?v=AmC9SmCBUj4',host_id=host_id,thumbnail='http://frederickcountymd.gov/images/pages/N2857/Cooking3.png')
 db.session.add(s)
 db.session.commit()
 

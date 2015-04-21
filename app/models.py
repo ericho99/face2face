@@ -44,6 +44,7 @@ class StreamHosts(db.Model):
     stream_name = db.Column(db.String(26))
     description = db.Column(db.String(200))
     embed_url = db.Column(db.String(100))
+    thumbnail = db.Column(db.String(100))
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     def __repr__(self):

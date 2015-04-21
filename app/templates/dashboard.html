@@ -19,7 +19,7 @@
     {% for stream in streams %}
  <li>
                 <div class="wrapimg">
-                    <img src="../static/img/food1.jpg">
+                    <img src="{{stream.thumbnail}}">
                     <div class="addPro"> <a href="/live/{{ stream.stream_number }}">+ Join Stream</a> 
                     </div>
                 </div>
