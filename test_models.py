@@ -12,7 +12,7 @@ class ModelTest(unittest.TestCase):
 		u4 = User(username='David',psw='d',credit=0)
 		u5 = User(username='Tony',psw='psiwhat',credit=100000000)
 
-		self.assertEquals("brianblowspeen", u.username)
+		self.assertEquals("brianli", u.username)
 		self.assertEquals("imawesome", u2.psw)
 		self.assertEquals(3.6, u3.credit)
 
