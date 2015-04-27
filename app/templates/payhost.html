@@ -1,0 +1,21 @@
+<!-- deducts credits for paying to join stream -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+	<center>
+    <h2>Your current account balance is: {{ currentcredits }} credits</h2>
+    <h2>This stream is {{ price }} credits</h2>
+
+    <br>
+
+    <h2><a href="{{ url_for('live', streamno=streamno) }}">Click here to confirm your payment of {{ price }} credits</a></h2>
+    <h2><a href="/dashboard">Click here to cancel and return to your dashboard</a></h2>
+
+	</center>
+
+</div>
+
+{% endblock %}

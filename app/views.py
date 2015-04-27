@@ -21,7 +21,6 @@ def index():
   else:
     return render_template('index.html')
 
-
 # LOGIN
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -44,7 +43,7 @@ def register():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
         added_user = User(username = form.username.data, email = form.email.data, 
-          psw = form.password.data, credit = 0, paypal_username = "")
+          psw = form.password.data, credit = 0, paypal_username = "", cumulativerating=0, numrating=0)
         db.session.add(added_user)
         db.session.commit()
         return redirect(url_for('login'))
@@ -104,16 +103,73 @@ def team():
 def comingsoon():
   return render_template('comingsoon.html')
 
+@app.route('/profile')
+@login_required
+def profile():
+    user = User.query.filter(User.username==current_user.username).first()
+    if user.numrating is None:
+        user.numrating = 0
+        user.cumulativerating = 0
+        db.session.commit()
+
+    if user.numrating == 0:
+        rating = "No ratings yet"
+    else:
+        rating = round(float(user.cumulativerating) / user.numrating,1)
+    return render_template('profile.html', rating=rating)
+
 @app.route("/live/<int:streamno>")
 @login_required
 def live(streamno):
     s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
-    chef_name = User.query.get(s.host_id).username
-    return render_template('livestream.html',url=s.embed_url,stream_name=s.stream_name,username=current_user.username, chef_name = chef_name)
+    price = round(s.stream_price,1)
+    viewer = User.query.filter(User.username==current_user.username).first()
+    viewer.credit=round(viewer.credit - price,1)
+    chef = User.query.get(s.host_id)
+    chef.credit=round(chef.credit + price,1)
+    db.session.commit()
+    return render_template('livestream.html',url=s.embed_url,stream_name=s.stream_name,username=current_user.username, chef_name = chef.username, streamno=streamno)
+
+@app.route("/rate/<int:streamno>", methods = ['GET', 'POST'])
+@login_required
+def rate(streamno):
+    s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
+    chef = User.query.get(s.host_id)
+    if chef.numrating is None:
+        chef.numrating = 0
+        chef.cumulativerating = 0
+        db.session.commit()
+
+    if chef.numrating == 0:
+        currentrating = "No ratings yet"
+    else:
+        currentrating = round(float(chef.cumulativerating) / chef.numrating,1)
+
+    if request.method == 'POST':
+        chef.numrating = chef.numrating+1
+        chef.cumulativerating = chef.cumulativerating+int(request.form['rating'])
+        db.session.commit()
+        return redirect(url_for('dashboard'))
+
+    return render_template('rate.html', chef_name = chef.username, currentrating=currentrating)
+
+@app.route("/payment/<int:streamno>")
+@login_required
+def payment(streamno):
+    error=None
+    s = StreamHosts.query.filter(StreamHosts.stream_number==streamno).first()
+    viewer = User.query.filter(User.username==current_user.username).first()
+    if viewer.credit < s.stream_price:
+        error = "Not enough credits"
+        return render_template('credits.html', currentcredits=viewer.credit, error=error)
+
+    return render_template('payhost.html',price=s.stream_price,currentcredits=viewer.credit,streamno=streamno)
+
 
 @app.route("/addcredits", methods = ['GET', 'POST'])
 @login_required
 def add_credits():
+    error=None
     user=User.query.filter(User.username==current_user.username).first()
     if user is None:
         return redirect('/register')
@@ -125,7 +181,7 @@ def add_credits():
         addcredits=request.form['amount']
         return redirect(url_for('paypal_redirect', amount=addcredits))
 
-    return render_template('credits.html', currentcredits=user.credit)
+    return render_template('credits.html', currentcredits=user.credit, error=error)
 
 # paypal recharge credits
 @app.route('/paypal/redirect/<string:amount>')

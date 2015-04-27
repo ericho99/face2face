@@ -15,6 +15,8 @@ class User(db.Model):
     psw = db.Column(db.String(26)) # encrypt or hash
     credit = db.Column(db.Float)
     paypal_username = db.Column(db.String(26))
+    cumulativerating = db.Column(db.Integer)
+    numrating = db.Column(db.Integer)
 
     # Flask-Login integration
     def is_authenticated(self):
