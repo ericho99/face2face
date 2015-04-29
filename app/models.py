@@ -1,11 +1,6 @@
 from app import db
 from datetime import datetime
 
-# Next steps:
-#   -Data validation
-#   -Create views
-#   -See where we can integrate frontend
-
 class User(db.Model):
     __tablename__ = 'users'
     
