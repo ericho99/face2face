@@ -22,7 +22,7 @@ class ModelTest(unittest.TestCase):
 			end_time=datetime(2015, 4, 19, 15, 0), stream_price=500,
 			stream_name="Cooking People")
 		self.assertEquals(500, h.stream_price)
-		self.assertEquals(datetime(2015, 4, 19, 13, 0), h.start_time)
+		self.assertEquals("Cooking People", h.stream_name)
 
 	def test_StreamViewers(self):
 		v = StreamViewers(viewer_id=1,stream_id=1,
@@ -65,6 +65,18 @@ class ModelTest(unittest.TestCase):
 		db.session.delete(u)
 		db.session.commit()
 
+	def test_times(self):
+		h = StreamHosts(start_time=datetime(2015, 4, 19, 13, 0),
+			end_time=datetime(2015, 4, 19, 15, 0), stream_price=500,
+			stream_name="Cooking People")
+		v = StreamViewers(viewer_id=1,stream_id=1,
+			join_time=datetime(2015, 4, 19, 13, 20),
+			leave_time=datetime(2015, 4, 19, 13, 25),viewer_rating=3)
+
+		self.assertEquals(datetime(2015, 4, 19, 13, 0), h.start_time)
+		self.assertEquals(datetime(2015, 4, 19, 15, 0), h.end_time)
+		self.assertEquals(datetime(2015, 4, 19, 13, 20), v.join_time)
+		self.assertEquals(datetime(2015, 4, 19, 13, 25), v.leave_time)
 
 if __name__ == '__main__':
     unittest.main()
