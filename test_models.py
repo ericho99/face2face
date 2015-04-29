@@ -65,7 +65,6 @@ class ModelTest(unittest.TestCase):
 		db.session.delete(u)
 		db.session.commit()
 
-	def 	
 
 if __name__ == '__main__':
     unittest.main()
